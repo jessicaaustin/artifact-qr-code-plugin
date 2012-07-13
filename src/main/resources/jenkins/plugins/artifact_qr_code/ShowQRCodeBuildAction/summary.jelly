@@ -1,0 +1,26 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <j:if test="${!it.artifacts.isEmpty()}">
+    <script>
+        loadScript("/plugin/artifact-qr-code/scripts/qrcode.js");
+        YAHOO.util.Event.addListener(window, 'load', function () {
+            var baseUrl = window.location.origin ? window.location.origin : window.location.protocol + "//" + window.location.host;
+
+            var elems = YAHOO.util.Dom.getElementsByClassName('artifact-qr');
+
+            for (var i = 0; i&lt;elems.length; i++) {
+                var elem = elems[i];
+                var qr = qrcode(4, 'M');
+                qr.addData(baseUrl + YAHOO.util.Dom.getAttribute(elem, "artifact-url"));
+                qr.make();
+                elem.innerHTML = qr.createImgTag();
+            }
+        });
+    </script>
+    <t:summary icon="package.png">
+      <j:forEach var="artifact" items="${it.artifacts}">
+        <a href="artifact/${artifact.href}">${artifact.displayPath}</a>
+        <div class="artifact-qr" artifact-url="/${it.buildUrl}artifact/${artifact.href}"></div>
+      </j:forEach>
+    </t:summary>
+  </j:if>
+</j:jelly>

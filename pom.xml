@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>1.398</version>
+  </parent>
+  
+  <artifactId>artifact-qr-code</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>hpi</packaging>
+  <name>Artifact QR Code Plugin</name>
+  <url>http://wiki.jenkins-ci.org/display/JENKINS/Artifact+QR+Code+Plugin</url>
+  <developers>
+    <developer>
+      <id>jessicaaustin</id>
+      <name>Jessica Austin</name>
+    </developer>
+  </developers>
+
+  <build>
+    <pluginManagement>
+        <plugins>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.2</version>
+          </plugin>
+        </plugins>
+     </pluginManagement>
+  </build>
+
+  <scm>
+    <connection>scm:git:git://github.com/jessicaaustin/artifact-qr-code-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jessicaaustin/artifact-qr-code-plugin.git</developerConnection>
+    <url>https://github.com/jessicaaustin/artifact-qr-code-plugin</url>
+  </scm>
+
+    <repositories>
+        <repository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>  
+  
+
